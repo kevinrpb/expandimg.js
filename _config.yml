@@ -1,1 +1,5 @@
+repository: kevinrpb/expandimg.js
 theme: jekyll-theme-cayman
+show_downloads: true
+github:
+  download_url: https://github.com/kevinrpb/expandimg.js/releases/latest
