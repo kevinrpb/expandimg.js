@@ -6,9 +6,15 @@ A rather naïve library to present images in your webpage. It allows to 'zoom in
 
 Plug and play, include the script file in your page. This will add a listener to all `<img />` elements. Then click any image to try it ^^
 
-## Caveats
+## Caveats / Known Bugs
 
-As of now, it assumes your images are **centered on screen**.
+- It assumes your images are **centered on screen**.
+- When scroll happens after expanding, the unexpanding position will not match the original image.
+
+## To-Dos
+
+- [ ] Support images that are not centered in screen
+- [ ] Get new position to 'unexpand' when there was a scroll
 
 ## How it looks
 
