@@ -101,6 +101,5 @@ document.getElementsByTagName('html')[0].onclick = event => {
 	}
 };
 
-document.getElementsByTagName('img').foreach(img => {
-	img.style;
-});
+// TODO: add zoom-in/out cursors on hover
+document.getElementsByTagName('img').forEach(img => {});
