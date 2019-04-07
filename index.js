@@ -67,8 +67,8 @@ function expandimg(image) {
 		expandimg_fakeimg.style.transform = `scale(${scale}) translateY(${offset_y}px)`;
 	}, 15);
 
-	document.getElementsByTagName('html')[0].style.overflow = 'hidden';
-	document.getElementsByTagName('body')[0].style.overflow = 'hidden';
+	// document.getElementsByTagName('html')[0].style.overflow = 'hidden';
+	// document.getElementsByTagName('body')[0].style.overflow = 'hidden';
 }
 
 function unexpandimg(image) {
@@ -84,8 +84,8 @@ function unexpandimg(image) {
 			expandimg_fakeimg = undefined;
 		}, 500);
 	}
-	document.getElementsByTagName('html')[0].style.overflow = 'auto';
-	document.getElementsByTagName('body')[0].style.overflow = 'auto';
+	// document.getElementsByTagName('html')[0].style.overflow = 'auto';
+	// document.getElementsByTagName('body')[0].style.overflow = 'auto';
 }
 
 document.getElementsByTagName('html')[0].onclick = event => {
