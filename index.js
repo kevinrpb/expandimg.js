@@ -96,22 +96,26 @@ document.getElementsByTagName('html')[0].onclick = event => {
 	}
 };
 
-const styles = `
+const styles = [
+`
 img:hover {
 	cursor: zoom-in;
 }
-
+`,
+`
 img#expandimg_fake {
 	position: fixed;
 	display: block;
 	transition: all 250ms ease-in-out;
 	-webkit-transition: all 250ms ease-in-out;
 }
-
+`.
+`
 img#expandimg_fake.expanded:hover {
 	cursor: zoom-out;
 }
-
+`,
+`
 img#expandimg_fake.expanded::before {
 	position: absolute;
 	left: 0;
@@ -123,14 +127,19 @@ img#expandimg_fake.expanded::before {
 	backdrop-filter: blur(15px);
 	-webkit-backdrop-filter: blur(15px);
 }
-
+`,
+`
 @media prefers-color-scheme(light) {
 	img#expandimg_fake.expanded::before {
 		background-color: rgba(180, 180, 180, 0.8);
 	}
-}`
+}
+`
+]
 
 let stylesElement = document.createElement('style');
 document.head.appendChild(stylesElement);
 
-stylesElement.sheet.insertRule(styles)
+for let style in styles {
+	stylesElement.sheet.insertRule(style)
+}
