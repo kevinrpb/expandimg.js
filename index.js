@@ -52,13 +52,13 @@ function expandimg(image) {
 
 	expandimg_fakeimg = image.cloneNode(true);
 	expandimg_fakeimg.id = 'expandimg_fake';
-	expandimg_fakeimg.style.display = 'block';
-	expandimg_fakeimg.style.position = 'fixed';
+	//expandimg_fakeimg.style.display = 'block';
+	//expandimg_fakeimg.style.position = 'fixed';
 	expandimg_fakeimg.style.top = y + 'px';
 	expandimg_fakeimg.style.left = x + 'px';
 	expandimg_fakeimg.style.width = width + 'px';
 	expandimg_fakeimg.style.height = height + 'px';
-	expandimg_fakeimg.style.transition = 'all 250ms ease-in-out';
+	//expandimg_fakeimg.style.transition = 'all 250ms ease-in-out';
 
 	document.getElementsByTagName('body')[0].appendChild(expandimg_fakeimg);
 	expandimg_fakeimg.classList.add('expanded');
@@ -96,5 +96,41 @@ document.getElementsByTagName('html')[0].onclick = event => {
 	}
 };
 
-// TODO: add zoom-in/out cursors on hover
-document.getElementsByTagName('img').forEach(img => {});
+const styles = `
+img:hover {
+	cursor: zoom-in;
+}
+
+img#expandimg_fake {
+	position: fixed;
+	display: block;
+	transition: all 250ms ease-in-out;
+	-webkit-transition: all 250ms ease-in-out;
+}
+
+img#expandimg_fake.expanded:hover {
+	cursor: zoom-out;
+}
+
+img#expandimg_fake.expanded::before {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-color: rgba(51, 51, 51, 0.8);
+	backdrop-filter: blur(15px);
+	-webkit-backdrop-filter: blur(15px);
+}
+
+@media prefers-color-scheme(light) {
+	img#expandimg_fake.expanded::before {
+		background-color: rgba(180, 180, 180, 0.8);
+	}
+}`
+
+let stylesElement = document.createElement('style');
+document.head.appendChild(stylesElement);
+
+stylesElement.sheet.insertRule(styles)
